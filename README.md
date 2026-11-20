@@ -139,7 +139,7 @@ Logged events include:
 - missing track metadata with selectors tried;
 - and missing Like/Dislike buttons with selectors tried.
     
-Routine successful 200 poll responses are intentionally not logged to prevent a new log entry every 500 ms. Missing sound files are not logged.
+Routine successful `200` poll responses are intentionally not logged to prevent a new log entry every 500 ms. Missing sound files are not logged.
 
 ## Selector order
 
