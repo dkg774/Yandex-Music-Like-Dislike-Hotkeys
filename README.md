@@ -155,11 +155,12 @@ The fallback artist suffix is normalized to `Artist — Track` with spaces aroun
 - Button lookup is retried up to 10 times with a 150 ms delay between attempts.
 - Commands older than 3 seconds are discarded by the desktop application so a stale key press is not replayed after a browser reconnect.
 
+## Requirements
+- Windows 10 (x64)
+- .Net Framework 4.8+
+- Tampermonkey:
+    - Firefox: https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/
+    - Chrome: https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
 
-## Version 1.1.1 changes
-
-- Application and Tampermonkey userscript version set to 1.1.1.
-- Added the Yandex Music favicon metadata to the userscript.
-- English is now the default UI language for fresh installations. Existing `settings.ini` language preferences are preserved.
-- Settings dialog layout adjusted for Russian labels and the Copy button. Logging and notifications now use matching label + ON/OFF button controls.
-- Opening Settings from the tray now activates the existing dialog instead of creating another one.
+## License
+- GNU General Public License v3.0
