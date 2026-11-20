@@ -167,7 +167,7 @@ The fallback artist suffix is normalized to `Artist — Track` with spaces aroun
 
 ## Requirements
 - Windows 10+ (x64)
-- .Net Framework 4.8+
+- .Net Framework 4.8
 - Tampermonkey:
     - Firefox: https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/
     - Chrome: https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
