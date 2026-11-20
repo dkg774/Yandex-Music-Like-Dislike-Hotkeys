@@ -4,7 +4,7 @@
 
 ## Components
 
-- `App/` — C# WinForms tray application for .NET Framework 4.8 (`WinExe`, no console window).
+- `App/` — C# WinForms tray application (`WinExe`, no console window).
 - `UserScript/Yandex-Music-Like-Dislike-Hotkeys.user.js` — Tampermonkey userscript.
 - `Yandex-Music-Like-Dislike-Hotkeys.sln` — Visual Studio solution.
 
