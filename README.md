@@ -129,7 +129,17 @@ Each file is limited to 5 MiB. When the current log reaches the size limit, the 
 
 Log diagnostic messages are in English. Artist and track names are kept exactly as returned by Yandex Music, so their original spelling/language is preserved.
 
-Logged events include application/server lifecycle, HTTP error statuses with their reason names, userscript polling failures, successful normal clicks, successful forced clicks (clearly marked as force-clicked), already-liked/already-disliked skips, missing track metadata with selectors tried, and missing Like/Dislike buttons with selectors tried. Routine successful 200 poll responses are intentionally not logged to prevent a new log entry every 500 ms. Missing sound files are not logged.
+Logged events include:
+- application/server lifecycle;
+- HTTP error statuses with their reason names;
+- userscript polling failures;
+- successful normal clicks;
+- successful forced clicks (clearly marked as force-clicked);
+- already-liked/already-disliked skips;
+- missing track metadata with selectors tried;
+- and missing Like/Dislike buttons with selectors tried.
+    
+Routine successful 200 poll responses are intentionally not logged to prevent a new log entry every 500 ms. Missing sound files are not logged.
 
 ## Selector order
 
