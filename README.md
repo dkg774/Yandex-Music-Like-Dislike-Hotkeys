@@ -29,8 +29,8 @@ The project uses `OutputType=WinExe`, so it does not create a console window. `B
 
 ## Install the userscript
 
-1. Install Tampermonkey in your browser.
-2. Open Tampermonkey Dashboard → **Create a new script**.
+1. Install *Tampermonkey* in your browser.
+2. Open *Tampermonkey Dashboard* → **Create a new script**.
 3. Replace the editor contents with `UserScript/Yandex-Music-Like-Dislike-Hotkeys.user.js` and save.
 4. Open or reload `https://music.yandex.ru/`.
 
