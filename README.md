@@ -127,8 +127,6 @@ Logging is disabled by default and can be enabled from **Settings**. When enable
 
 Each file is limited to 5 MiB. When the current log reaches the size limit, the older `previous` file is deleted and the current log is renamed to `previous`; a new current log is then created for the next entry. Each line contains a local timestamp in `yyyy-MM-dd HH:mm:ss` format and either `[INFO]` or `[ERROR]`.
 
-Log diagnostic messages are in English. Artist and track names are kept exactly as returned by Yandex Music, so their original spelling/language is preserved.
-
 Logged events include:
 - application/server lifecycle;
 - HTTP error statuses with their reason names;
@@ -147,8 +145,10 @@ Routine successful `200` poll responses are intentionally not logged to prevent 
 
 The userscript checks these selector pairs in order:
 
-1. `div[class^="PlayerBarDesktopWithBackgroundProgressBar_sonata"] > button[data-test-id*="LIKE_BUTTON"]` and the matching `DISLIKE_BUTTON` selector.
-2. `div[class^="VibePlayerBar_progress"] > button[data-test-id*="LIKE_BUTTON"]` and the matching `DISLIKE_BUTTON` selector.
+1. `div[class^="PlayerBarDesktopWithBackgroundProgressBar_sonata"] > button[data-test-id*="LIKE_BUTTON"]`<br>
+    and the matching `DISLIKE_BUTTON` selector.
+2. `div[class^="VibePlayerBar_progress"] > button[data-test-id*="LIKE_BUTTON"]`<br>
+    and the matching `DISLIKE_BUTTON` selector.
 
 ### Track and artist metadata
 
