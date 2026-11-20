@@ -1,22 +1,22 @@
 # Yandex Music Like/Dislike Hotkeys
 
-A **Windows** tray app and **Tampermonkey** userscript that let you like/dislike tracks on [Yandex Music](https://music.yandex.ru) via global hotkeys from any app.
+A **Windows** tray app and **Tampermonkey** Userscript that let you like/dislike tracks on [Yandex Music](https://music.yandex.ru) via global hotkeys from any app.
 
 ## Components
 
 - `App/` — C# WinForms tray application (`WinExe`, no console window).
-- `UserScript/Yandex-Music-Like-Dislike-Hotkeys.user.js` — Tampermonkey userscript.
+- `UserScript/Yandex-Music-Like-Dislike-Hotkeys.user.js` — Tampermonkey Userscript.
 - `Yandex-Music-Like-Dislike-Hotkeys.sln` — Visual Studio solution.
 
 ## Communication
 
 1. The desktop application registers four global hotkeys and runs a local HTTP server bound to `127.0.0.1:17863`.
-2. The userscript polls `http://127.0.0.1:17863/api/poll` every **500 ms**.
-3. The userscript locates the current Like/Dislike controls and processes normal or forced commands.
-4. The userscript posts diagnostic and action events to `http://127.0.0.1:17863/api/log`.
+2. The Userscript polls `http://127.0.0.1:17863/api/poll` every **500 ms**.
+3. The Userscript locates the current Like/Dislike controls and processes normal or forced commands.
+4. The Userscript posts diagnostic and action events to `http://127.0.0.1:17863/api/log`.
 5. Both endpoints require the API token. The server is bound to IPv4 loopback and is not exposed to the local network.
 
-The userscript uses Tampermonkey's `GM_xmlhttpRequest`; `@connect 127.0.0.1` is declared in its metadata.
+The Userscript uses Tampermonkey's `GM_xmlhttpRequest`; `@connect 127.0.0.1` is declared in its metadata.
 
 ## Build
 
@@ -27,18 +27,18 @@ The userscript uses Tampermonkey's `GM_xmlhttpRequest`; `@connect 127.0.0.1` is 
 
 The project uses `OutputType=WinExe`, so it does not create a console window. `Build-Release.bat` can be run from a *Visual Studio* Developer Command Prompt.
 
-## Install the userscript
+## Install the Userscript
 
 1. Install *Tampermonkey* in your browser.
 2. Open *Tampermonkey Dashboard* → **Create a new script**.
 3. Replace the editor contents with `UserScript/Yandex-Music-Like-Dislike-Hotkeys.user.js` and save.
 4. Open or reload `https://music.yandex.ru/`.
 
-The userscript's initial API token matches the desktop application's default token.
+The Userscript's initial API token matches the desktop application's default token.
 
 ### Changing the API token
 
-In the desktop app, open **Settings** and press **Generate**. The new token is saved to `settings.ini` and becomes active in the local server immediately. Press **Copy**, open the Tampermonkey script, replace the value of `API_TOKEN` with the copied token, and save/reload the userscript. The token is deliberately not fetched from an unauthenticated endpoint.
+In the desktop app, open **Settings** and press **Generate**. The new token is saved to `settings.ini` and becomes active in the local server immediately. Press **Copy**, open the Tampermonkey script, replace the value of `API_TOKEN` with the copied token, and save/reload the Userscript. The token is deliberately not fetched from an unauthenticated endpoint.
 
 ## Tray menu and settings
 
@@ -80,14 +80,12 @@ The settings window displays `[OK]` / `[Not found]` before the selected path. Mi
 
 ## Rating-state protection
 
-Yandex Music rating controls have three states: liked, disliked, and no rating. Clicking an already selected Like or Dislike button can clear the rating. To avoid this, immediately before every normal click the userscript checks the target button's `aria-pressed` attribute:
+Yandex Music tracks have three states: liked, disliked, and no rating. Clicking a Like/Dislike on already Liked/Disliked track will remove Like/Dislike. To avoid this, immediately before every normal click the Userscript checks the target button's `aria-pressed` attribute:
 
 - `aria-pressed="true"` on Like: the normal Like command is skipped and `already_liked` is logged.
 - `aria-pressed="true"` on Dislike: the normal Dislike command is skipped and `already_disliked` is logged.
 - Otherwise, the normal action is clicked.
 - Force Like / Force Dislike bypass this guard and always attempt the click.
-
-The userscript checks this attribute again on every retry immediately before a click. The force commands are intentionally explicit overrides and can toggle an already selected rating off.
 
 ## Settings file
 
@@ -120,7 +118,7 @@ The application needs write permission to its executable folder.
 
 ## Logging
 
-Logging is disabled by default and can be enabled from **Settings**. When enabled, the application writes UTF-8 text logs to the current user's `%TEMP%` directory:
+Logging is **disabled** by default and can be **enabled** from `Settings`. When enabled, the application writes *UTF-8* text logs to the current user's `%TEMP%` directory:
 
 - `%TEMP%\Yandex-Music-Like-Dislike-Hotkeys.log` — current log.
 - `%TEMP%\Yandex-Music-Like-Dislike-Hotkeys.previous.log` — previous log after rotation.
@@ -130,7 +128,7 @@ Each file is limited to 5 MiB. When the current log reaches the size limit, the 
 Logged events include:
 - application/server lifecycle;
 - HTTP error statuses with their reason names;
-- userscript polling failures;
+- Userscript polling failures;
 - successful normal clicks;
 - successful forced clicks (clearly marked as force-clicked);
 - already-liked/already-disliked skips;
@@ -143,7 +141,7 @@ Routine successful `200` poll responses are intentionally not logged to prevent 
 
 ### Like/Dislike buttons
 
-The userscript checks these selector pairs in order:
+The Userscript checks these selector pairs in order:
 
 1. `div[class^="PlayerBarDesktopWithBackgroundProgressBar_sonata"] > button[data-test-id*="LIKE_BUTTON"]`<br>
     and the matching `DISLIKE_BUTTON` selector.
@@ -161,7 +159,7 @@ The fallback artist suffix is normalized to `Artist — Track` with spaces aroun
 
 ## Notes
 
-- If no track metadata is found, the userscript reports the selectors it tried but still attempts the requested Like/Dislike action.
+- If no track metadata is found, the Userscript reports the selectors it tried but still attempts the requested Like/Dislike action.
 - Button lookup is retried up to 10 times with a 150 ms delay between attempts.
 - Commands older than 3 seconds are discarded by the desktop application so a stale key press is not replayed after a browser reconnect.
 
