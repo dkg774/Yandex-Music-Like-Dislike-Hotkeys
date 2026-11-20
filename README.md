@@ -156,7 +156,7 @@ The fallback artist suffix is normalized to `Artist — Track` with spaces aroun
 - Commands older than 3 seconds are discarded by the desktop application so a stale key press is not replayed after a browser reconnect.
 
 ## Requirements
-- Windows 10 (x64)
+- Windows 10+ (x64)
 - .Net Framework 4.8+
 - Tampermonkey:
     - Firefox: https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/
