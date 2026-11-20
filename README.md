@@ -1,6 +1,6 @@
 # Yandex Music Like/Dislike Hotkeys
 
-A **Windows** tray app and **Tampermonkey** userscript that let you like/dislike tracks on https://music.yandex.ru via global hotkeys from any app.
+A **Windows** tray app and **Tampermonkey** userscript that let you like/dislike tracks on [Yandex Music](https://music.yandex.ru) via global hotkeys from any app.
 
 ## Components
 
