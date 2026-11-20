@@ -21,7 +21,7 @@ The userscript uses Tampermonkey's `GM_xmlhttpRequest`; `@connect 127.0.0.1` is 
 ## Build
 
 1. On Windows 10, open `Yandex-Music-Like-Dislike-Hotkeys.sln` in Visual Studio 2019 or newer.
-2. Install the **.NET desktop development** workload and the **.NET Framework 4.8 Developer Pack**, if needed.
+2. Install the **.NET desktop development** workload and the **.NET Framework 4.8 Developer Pack (or newer)**, if needed.
 3. Build the solution using the `Release` configuration.
 4. Run `App/bin/Release/Yandex-Music-Like-Dislike-Hotkeys.exe`.
 
