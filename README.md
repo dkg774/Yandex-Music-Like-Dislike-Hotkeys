@@ -25,7 +25,7 @@ The userscript uses Tampermonkey's `GM_xmlhttpRequest`; `@connect 127.0.0.1` is 
 3. Build the solution using the `Release` configuration.
 4. Run `App/bin/Release/Yandex-Music-Like-Dislike-Hotkeys.exe`.
 
-The project uses `OutputType=WinExe`, so it does not create a console window. `Build-Release.bat` can be run from a Visual Studio Developer Command Prompt.
+The project uses `OutputType=WinExe`, so it does not create a console window. `Build-Release.bat` can be run from a *Visual Studio* Developer Command Prompt.
 
 ## Install the userscript
 
@@ -49,34 +49,34 @@ Right-click the tray icon to open:
 - **Settings** — open the settings window.
 - **Exit** — close the application.
 
-The settings window includes:
+The `Settings` window includes:
 
-- Four global hotkey editors: Like, Dislike, Force like and Force dislike. A key or a combination with Ctrl/Alt/Shift is supported; Esc cancels capture.
-- Separate Like and Dislike sound settings: enable checkbox, WAV file picker and a file status label.
+- Four global hotkey editors: Like, Dislike, Force like and Force dislike. A key or a combination with `Ctrl/Alt/Shift` is supported; `Esc` cancels capture.
+- Separate **Like** and **Dislike** sound settings: enable checkbox, WAV file picker and a file status label.
 - Current API token, **Generate**, and **Copy** buttons.
-- A single toggle button for logging and **Open log**.
+- A toggle button for logging and **Open log**.
 - Current log path, or a message that the `.log` file has not yet been created.
-- A single toggle button for tray notifications.
-- A small **RU/EN** button that changes the tray menu, settings window, sound settings and notifications immediately.
+- A toggle button for tray notifications.
+- A **EN/RU** button that changes localization.
 
 ### Default hotkeys
 
 | Action | Default hotkey | Behaviour |
 |---|---|---|
-| Like | `PageUp` | Click Like only if it is not already selected |
-| Dislike | `PageDown` | Click Dislike only if it is not already selected |
-| Force like | `Ctrl+PageUp` | Click Like regardless of its current `aria-pressed` state |
-| Force dislike | `Ctrl+PageDown` | Click Dislike regardless of its current `aria-pressed` state |
+| Like | `PageUp` | Click *Like* only if a track is not already Liked |
+| Dislike | `PageDown` | Click *Dislike* only if a track is not already Disliked |
+| Force like | `Ctrl+PageUp` | Click *Like* regardless of track's current *Like* state |
+| Force dislike | `Ctrl+PageDown` | Click *Dislike* regardless of track's current *Dislike* state |
 
-All four combinations must be unique. If Windows cannot register one of them because another application already uses it, choose a different combination in Settings.
+All four combinations must be unique.
 
 ## Sound settings
 
 The sound section has independent settings for Like and Dislike. Select a local `.wav` file and enable its checkbox. Sounds are played by the desktop application's own process through .NET Framework's `System.Media.SoundPlayer`; no external player is launched.
 
-A sound is played only after the userscript confirms that the corresponding button click was performed. It is not played when a normal command is skipped because the track already has that rating. Force clicks use the same Like/Dislike sound as their normal counterparts.
+A sound is played only after the Userscript confirms that the corresponding button click was performed. It is not played when a normal command is skipped because the track already has that rating. Force clicks use the same Like/Dislike sound as their normal counterparts.
 
-The settings window displays `[OK]` / `[Not found]` before the selected path in English, or the localized equivalent in Russian. Missing audio files are not written to the log. Sound is disabled by default, and no sound file is selected initially.
+The settings window displays `[OK]` / `[Not found]` before the selected path. Missing audio files are not written to the log. Sound is disabled by default, and no sound file is selected initially.
 
 ## Rating-state protection
 
