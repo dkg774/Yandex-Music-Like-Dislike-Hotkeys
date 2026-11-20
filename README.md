@@ -152,10 +152,10 @@ The userscript checks these selector pairs in order:
 
 ### Track and artist metadata
 
-1. Track: `div[class^="PlayerBarDesktopWithBackgroundProgressBar_description"] a[data-test-id="TRACK_TITLE"] > span`.
-2. Artist: `div[class^="PlayerBarDesktopWithBackgroundProgressBar_description"] a[data-test-id="SEPARATED_ARTIST_TITLE"] > span`.
-3. Fallback track container: `div[class^="VibePlayerBar_progress"] div[class*="VibePlayerbarTrackName_trackNameText"]`.
-4. Fallback artist: `div[class^="VibePlayerBar_progress"] div[class*="VibePlayerbarTrackName_trackNameText"] > span`.
+1. **Track:**<br>`div[class^="PlayerBarDesktopWithBackgroundProgressBar_description"] a[data-test-id="TRACK_TITLE"] > span`.
+2. **Artist:**<br>`div[class^="PlayerBarDesktopWithBackgroundProgressBar_description"] a[data-test-id="SEPARATED_ARTIST_TITLE"] > span`.
+3. **Fallback track container:**<br>`div[class^="VibePlayerBar_progress"] div[class*="VibePlayerbarTrackName_trackNameText"]`.
+4. **Fallback artist:**<br>`div[class^="VibePlayerBar_progress"] div[class*="VibePlayerbarTrackName_trackNameText"] > span`.
 
 The fallback artist suffix is normalized to `Artist — Track` with spaces around the em dash.
 
