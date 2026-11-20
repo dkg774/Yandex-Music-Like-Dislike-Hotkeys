@@ -68,7 +68,7 @@ The `Settings` window includes:
 | Force like | `Ctrl+PageUp` | Click *Like* regardless of track's current *Like* state |
 | Force dislike | `Ctrl+PageDown` | Click *Dislike* regardless of track's current *Dislike* state |
 
-All four combinations must be unique.
+All four combinations must be unique. If Windows cannot register one of them because another application already uses it, **choose a different combination** in `Settings`.
 
 ## Sound settings
 
